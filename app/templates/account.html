@@ -6,4 +6,34 @@
 
 {% block content %}
 <h1>Это страница вашего аккаунта</h1>
+ <h2>Редактирование профиля</h2>
+ <h2>Обратите внимание, изменение почты и имени пользователя доступно только при изменении пароля</h2>
+  <form method="POST" action="{{ url_for('account') }}">
+    {{ form.hidden_tag() }}
+    <div>
+      <label for="username">Имя пользователя</label>
+      {{ form.username(class="form-control") }}
+    </div>
+    <div>
+      <label for="email">Email</label>
+      {{ form.email(class="form-control") }}
+    </div>
+    <div>
+      <label for="password">Пароль</label>
+      {{ form.password(class="form-control") }}
+    </div>
+    <div>
+      <label for="new_password">Новый пароль (если хотите изменить)</label>
+      {{ form.new_password(class="form-control") }}
+    </div>
+    <div>
+      <label for="confirm_password">Подтвердите новый пароль</label>
+      {{ form.confirm_password(class="form-control") }}
+    </div>
+    <div>
+      {{ form.submit(class="btn btn-primary") }}
+    </div>
+  </form>
 {% endblock %}
+
+
